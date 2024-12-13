@@ -8,10 +8,26 @@
   body {
     @apply font-poppins;
   }
+
+  h1 {
+    @apply text-6xl font-bold md:text-7xl;
+    text-shadow: 1px 1px 5px currentColor;
+  }
 }
 
 @layer components {
 }
 
 @layer utilities {
+  .glowing {
+    text-shadow:
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 40px currentColor,
+      0 0 80px currentColor,
+      0 0 160px currentColor;
+  }
+  .paused {
+    animation-play-state: paused;
+  }
 }
