@@ -1,9 +1,11 @@
+import Home from 'src/page/Home'
+import InGame from 'src/page/InGame'
+import { useStore } from 'src/store'
+
 function App() {
-  const string = 'hello'
+  const { gameStarted } = useStore()
 
-  console.log(string)
-
-  return <h1 className="text-bold text-3xl text-green-400">Vite + React</h1>
+  return <div className="App">{gameStarted ? <InGame /> : <Home />}</div>
 }
 
 export default App
