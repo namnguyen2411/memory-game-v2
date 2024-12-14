@@ -1,4 +1,4 @@
-import Pokeball from 'src/components/PokeBall'
+import DecorativePokeball from 'src/components/DecorativePokeball'
 import pokemon_logo from 'src/assets/logo.svg'
 import version from 'src/assets/text-version.png'
 import { useStore } from 'src/store'
@@ -11,7 +11,7 @@ const Home = () => {
       <section className="item-center mx-auto flex flex-col gap-10 pt-[5%] text-center text-white">
         <h1 className="text-cyan-400">MEMORY MATCH GAME</h1>
         <div className="mx-auto mt-20 flex w-[80%] items-center md:mt-10 md:w-[60%]">
-          <Pokeball />
+          <DecorativePokeball />
 
           {/* logo */}
           <div className="mx-auto w-[50%] md:max-w-[450px]">
@@ -19,7 +19,7 @@ const Home = () => {
             <img src={version} className="mx-auto w-[300px]" />
           </div>
 
-          <Pokeball />
+          <DecorativePokeball />
         </div>
 
         <button
