@@ -1,3 +1,3 @@
-import PokeBall from './PokeBall'
+import Pokeball from './Pokeball'
 
-export default PokeBall
+export default Pokeball
