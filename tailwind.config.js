@@ -14,10 +14,16 @@ export default {
         wiggle: {
           '0%, 100%': { transform: 'rotate(-20deg)' },
           '50%': { transform: 'rotate(20deg)' }
+        },
+        fade: {
+          '0%': { opacity: 1 },
+          '50%': { opacity: 0.5 },
+          '100%': { opacity: 0 },          
         }
       },
       animation: {
-        wiggle: 'wiggle 1s ease-in-out infinite'
+        wiggle: 'wiggle 1s ease-in-out infinite',
+        fade: 'fade .2s linear forwards',
       }
     }
   },
