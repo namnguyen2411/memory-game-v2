@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import pokemonApi from 'src/apis/pokemon.api'
 import { PokemonType } from 'src/types/poke.type'
+import specialPokemons from 'src/data/specialPokemons'
 
 const usePokemon = (limit: number) => {
   const { getPokemonList, getPokemonDetails } = pokemonApi
@@ -25,6 +26,9 @@ const usePokemon = (limit: number) => {
 
       // duplicate pokemon details data
       pokemonDetailsData.push(...pokemonDetailsData)
+
+      // add special pokemons
+      pokemonDetailsData.push(...specialPokemons)
 
       // shuffle pokemon details data
       pokemonDetailsData.sort(() => Math.random() - 0.5)
