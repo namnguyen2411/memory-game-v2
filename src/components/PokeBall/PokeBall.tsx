@@ -25,13 +25,18 @@ const Pokeball = ({ pokemon, index, selectingBall, handleSelectBall, matchingPai
         handleSelectBall({ index, id, name })
       }}
     >
+      {/* display pokemon index in dev mode */}
+      {import.meta.env.DEV && <p className="absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2">{index}</p>}
+
       <img
         src={front_default}
         alt={name}
         draggable={false}
         className={clsx(
           'absolute left-1/2 top-1/2 aspect-auto max-w-[86px] -translate-x-1/2 -translate-y-1/2 object-cover transition duration-300',
-          isMatching || isSelected ? 'opacity-100' : 'opacity-0'
+          // in dev mode, opacity is always 100
+          // in production, opacity is 0 when not selected or matching
+          import.meta.env.DEV ? 'opacity-100' : isMatching || isSelected ? 'opacity-100' : 'opacity-0'
         )}
       />
       <div
