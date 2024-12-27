@@ -8,9 +8,17 @@ interface PokeballProps {
   selectingBall: SelectingBallType[]
   handleSelectBall: (pokeball: SelectingBallType) => void
   matchingPair: number[][]
+  handleImageLoad: () => void
 }
 
-const Pokeball = ({ pokemon, index, selectingBall, handleSelectBall, matchingPair }: PokeballProps) => {
+const Pokeball = ({
+  pokemon,
+  index,
+  selectingBall,
+  handleSelectBall,
+  matchingPair,
+  handleImageLoad
+}: PokeballProps) => {
   const { id, name, front_default } = pokemon
   const isSelected = selectingBall.some((ball) => ball.index === index)
   const isMatching = matchingPair.flat().includes(index)
@@ -32,6 +40,7 @@ const Pokeball = ({ pokemon, index, selectingBall, handleSelectBall, matchingPai
         src={front_default}
         alt={name}
         draggable={false}
+        onLoad={handleImageLoad}
         className={clsx(
           'absolute left-1/2 top-1/2 aspect-auto max-w-[86px] -translate-x-1/2 -translate-y-1/2 object-cover transition duration-300',
           // in dev mode, opacity is always 100
