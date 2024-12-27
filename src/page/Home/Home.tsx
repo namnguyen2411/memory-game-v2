@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import Instruction from 'src/components/Instruction'
 import DecorativePokeball from 'src/components/DecorativePokeball'
 import pokemon_logo from 'src/assets/logo.svg'
 import version from 'src/assets/text-version.png'
@@ -5,6 +7,14 @@ import { useStore } from 'src/store'
 
 const Home = () => {
   const { setGameStarted } = useStore()
+
+  const [showInstruction, setShowInstruction] = useState(false)
+
+  const handleToggleInstruction = () => setShowInstruction(!showInstruction)
+
+  if (showInstruction) {
+    return <Instruction />
+  }
 
   return (
     <div className="h-screen bg-black">
@@ -22,12 +32,20 @@ const Home = () => {
           <DecorativePokeball />
         </div>
 
-        <button
-          onClick={() => setGameStarted()}
-          className="hover:glowing mx-auto mt-20 w-fit rounded-lg px-6 py-2 text-5xl font-semibold text-red-500 md:text-6xl"
-        >
-          START
-        </button>
+        <div className="mt-16 flex flex-col gap-4">
+          <button
+            onClick={() => setGameStarted()}
+            className="hover:glowing mx-auto w-fit rounded-lg px-6 py-2 text-4xl font-semibold text-white md:text-5xl"
+          >
+            START
+          </button>
+          <button
+            onClick={handleToggleInstruction}
+            className="hover:glowing mx-auto w-fit rounded-lg px-6 py-2 text-4xl font-semibold text-white md:text-5xl"
+          >
+            INSTRUCTION
+          </button>
+        </div>
       </section>
     </div>
   )
